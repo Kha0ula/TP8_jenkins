@@ -1,0 +1,60 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.example",
+    "module": "TpJinkins",
+    "version": "1.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "TpJinkins-1.0.jar",
+          "url": "TpJinkins-1.0.jar",
+          "size": 4037,
+          "sha512": "917c361181bf5a7a5d0365ed9397f90e05a5fe883f5d6f76d565ff57ea4f3c17b483306ef23515489b6831c219b082a4eee1ccc6d4cd9ab9e61fea9fe43edf7c",
+          "sha256": "49aed2183cca3eefda21b45a7716a227f44a093acc6660747eca2fa3ace32cef",
+          "sha1": "2fcbcc6991ae2e1bcf780658c2ce7e307edae0f7",
+          "md5": "ea1c9cc35755a4339b4eb81c53c19a53"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "TpJinkins-1.0.jar",
+          "url": "TpJinkins-1.0.jar",
+          "size": 4037,
+          "sha512": "917c361181bf5a7a5d0365ed9397f90e05a5fe883f5d6f76d565ff57ea4f3c17b483306ef23515489b6831c219b082a4eee1ccc6d4cd9ab9e61fea9fe43edf7c",
+          "sha256": "49aed2183cca3eefda21b45a7716a227f44a093acc6660747eca2fa3ace32cef",
+          "sha1": "2fcbcc6991ae2e1bcf780658c2ce7e307edae0f7",
+          "md5": "ea1c9cc35755a4339b4eb81c53c19a53"
+        }
+      ]
+    }
+  ]
+}

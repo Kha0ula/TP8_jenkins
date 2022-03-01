@@ -1,0 +1,9 @@
+-classpath 'C:\\Users\\user\\Documents\\2CS\\S1\\zTravaux\\OGL\\TP8\\TpJinkins\\build\\classes\\java\\main;C:\\Users\\user\\Documents\\2CS\\S1\\zTravaux\\OGL\\TP8\\TpJinkins\\build\\resources\\main'
+-d 'C:\\Users\\user\\Documents\\2CS\\S1\\zTravaux\\OGL\\TP8\\TpJinkins\\build\\docs\\javadoc'
+-doctitle 'TpJinkins 1.0 API'
+-notimestamp 
+-quiet 
+-windowtitle 'TpJinkins 1.0 API'
+'C:\\Users\\user\\Documents\\2CS\\S1\\zTravaux\\OGL\\TP8\\TpJinkins\\src\\main\\java\\com\\example\\exception\\NoSquareException.java'
+'C:\\Users\\user\\Documents\\2CS\\S1\\zTravaux\\OGL\\TP8\\TpJinkins\\src\\main\\java\\com\\example\\model\\Matrix.java'
+'C:\\Users\\user\\Documents\\2CS\\S1\\zTravaux\\OGL\\TP8\\TpJinkins\\src\\main\\java\\com\\example\\service\\MatrixMathematics.java'
