@@ -41,7 +41,7 @@ pipeline {
                 waitForQualityGate true
               }
           }
-
+        }
         stage('Test reporting') {
           steps {
             cucumber 'reports/report.html'
