@@ -5,14 +5,15 @@ pipeline {
       steps {
         bat 'gradle build'
         bat 'gradle javadoc'
-        archiveArtifacts 'target/reports.json'
-        junit 'test'
+        archiveArtifacts 'build/libs/*.jar'
+        archiveArtifacts 'build/docs/javadoc/**'
+        archiveArtifacts 'build/reports/**'
       }
     }
 
     stage('Mail Notification') {
       steps {
-        mail(subject: 'TP Jenkins', body: 'build done')
+        mail(subject: 'TP Jenkins', body: 'build done', to: 'ik_gribissa@esi.dz')
       }
     }
 
