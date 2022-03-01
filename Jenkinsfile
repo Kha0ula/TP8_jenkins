@@ -27,7 +27,17 @@ pipeline {
             }
         }
       }
-      stage ( 'Qualite Gate')
+        
+        stage('Test reporting') {
+          steps {
+            cucumber 'reports/report.html'
+          }
+        }
+
+      }
+    }
+
+    stage ( 'Qualite Gate')
             {
               post
               {
@@ -41,16 +51,7 @@ pipeline {
                 waitForQualityGate true
               }
           }
-        
-        stage('Test reporting') {
-          steps {
-            cucumber 'reports/report.html'
-          }
-        }
-
-      }
-    }
-
+    
     stage('Deployment') {
       steps {
         bat 'gradle publish'
