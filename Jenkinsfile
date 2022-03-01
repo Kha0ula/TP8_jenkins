@@ -2,6 +2,11 @@ pipeline {
   agent any
   stages {
     stage('Build') {
+      post{
+        failure{
+          mail(subject: 'TP Jenkins', body: 'failure: build not done', to: 'ik_gribissa@esi.dz','ia_rouabhia@esi.dz')
+        }
+      }
       steps {
         bat 'gradle build'
         bat 'gradle javadoc'
@@ -13,7 +18,7 @@ pipeline {
 
     stage('Mail Notification') {
       steps {
-        mail(subject: 'TP Jenkins', body: 'build done', to: 'ik_gribissa@esi.dz')
+        mail(subject: 'TP Jenkins', body: 'build done', to: 'ik_gribissa@esi.dz','ia_rouabhia@esi.dz')
       }
     }
 
@@ -43,7 +48,7 @@ pipeline {
               {
                 failure
                 {
-                  mail(subject: 'TP Jenkins', body: 'Qualite gate is not good', to: 'ik_gribissa@esi.dz')
+                  mail(subject: 'TP Jenkins', body: 'Qualite gate is not good', to: 'ik_gribissa@esi.dz','ia_rouabhia@esi.dz')
                 }
               }
               steps
@@ -60,7 +65,7 @@ pipeline {
 
     stage('Slack Notification') {
       steps {
-        slackSend(baseUrl: 'https://hooks.slack.com/services/', token: 'T034EPHRMT9/B035CMR7EKT/45TsUK6RxKhg7q7J0AwXXQTJ', message: 'déploiement terminée!')
+        slackSend(baseUrl: 'https://hooks.slack.com/services/', token: 'T034EPHRMT9/B035CMR7EKT/45TsUK6RxKhg7q7J0AwXXQTJ', message: 'API deployment done!')
       }
     }
 
