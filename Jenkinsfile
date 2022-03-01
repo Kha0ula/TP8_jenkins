@@ -26,8 +26,8 @@ pipeline {
               bat 'gradle sonarqube'
             }
         }
-          
-           stage ( 'Qualite Gate')
+      }
+      stage ( 'Qualite Gate')
             {
               post
               {
@@ -41,7 +41,7 @@ pipeline {
                 waitForQualityGate true
               }
           }
-        }
+        
         stage('Test reporting') {
           steps {
             cucumber 'reports/report.html'
