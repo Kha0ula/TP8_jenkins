@@ -25,6 +25,10 @@ pipeline {
             {
               bat 'gradle sonarqube'
             }
+        }
+          
+           stage ( 'Qualite Gate')
+            {
               post
               {
                 failure
@@ -37,8 +41,6 @@ pipeline {
                 waitForQualityGate true
               }
           }
-          
-        }
 
         stage('Test reporting') {
           steps {
