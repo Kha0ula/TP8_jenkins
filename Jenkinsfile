@@ -5,7 +5,7 @@ pipeline {
       steps {
         bat 'gradle build'
         bat 'gradle javadoc'
-        archiveArtifacts 'jar javadoc'
+        archiveArtifacts 'target/reports.json'
         junit 'test'
       }
     }
@@ -58,7 +58,7 @@ pipeline {
 
       stage('Slack Notification') {
         steps {
-          slackSend(baseUrl: 'https://hooks.slack.com/services/', token: 'T034EPHRMT9/B035CMR7EKT/45TsUK6RxKhg7q7J0AwXXQTJ', message: 'déploiement terminée!')
+          slackSend(baseUrl: 'https://hooks.slack.com/services/', token: 'T034EPHRMT9/B035CMR7EKT/45TsUK6RxKhg7q7J0AwXXQTJ', message: 'dÃ©ploiement terminÃ©e!')
         }
       }
 
