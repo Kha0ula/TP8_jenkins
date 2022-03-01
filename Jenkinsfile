@@ -21,7 +21,7 @@ pipeline {
       parallel {
         stage('Code Analysis') {
           steps {
-            sh 'gradle sonarqube'
+            bat 'gradle sonarqube'
             waitForQualityGate true
           }
         }
@@ -37,31 +37,15 @@ pipeline {
 
     stage('Deployment') {
       steps {
-        sh '''publishing {
-    repositories {
-        maven {
-            url System.getenv("url")
-            credentials {
-                username System.getenv("username")
-                password System.getenv("password")
-            }
-        }
-    }
-
-    publications {
-        maven(MavenPublication) {
-            from components.java
-        }
-    }
-}'''
-        }
+        sh 'gradle publish'
       }
-
-      stage('Slack Notification') {
-        steps {
-          slackSend(baseUrl: 'https://hooks.slack.com/services/', token: 'T034EPHRMT9/B035CMR7EKT/45TsUK6RxKhg7q7J0AwXXQTJ', message: 'déploiement terminée!')
-        }
-      }
-
     }
+
+    stage('Slack Notification') {
+      steps {
+        slackSend(baseUrl: 'https://hooks.slack.com/services/', token: 'T034EPHRMT9/B035CMR7EKT/45TsUK6RxKhg7q7J0AwXXQTJ', message: 'déploiement terminée!')
+      }
+    }
+
   }
+}
