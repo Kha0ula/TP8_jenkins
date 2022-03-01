@@ -4,7 +4,7 @@ pipeline {
     stage('Build') {
       post{
         failure{
-          mail(subject: 'TP Jenkins', body: 'failure: build not done', to: 'ik_gribissa@esi.dz','ia_rouabhia@esi.dz')
+          mail(subject: 'TP Jenkins', body: 'failure: build not done', to: 'ik_gribissa@esi.dz')
         }
       }
       steps {
@@ -18,7 +18,7 @@ pipeline {
 
     stage('Mail Notification') {
       steps {
-        mail(subject: 'TP Jenkins', body: 'build done', to: 'ik_gribissa@esi.dz','ia_rouabhia@esi.dz')
+        mail(subject: 'TP Jenkins', body: 'build done', to: 'ik_gribissa@esi.dz')
       }
     }
 
@@ -48,7 +48,7 @@ pipeline {
               {
                 failure
                 {
-                  mail(subject: 'TP Jenkins', body: 'Qualite gate is not good', to: 'ik_gribissa@esi.dz','ia_rouabhia@esi.dz')
+                  mail(subject: 'TP Jenkins', body: 'Qualite gate is not good', to: 'ik_gribissa@esi.dz')
                 }
               }
               steps
