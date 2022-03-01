@@ -28,7 +28,17 @@ pipeline {
             
           }
         }
-        stage ( 'Qualite Gate')
+
+        stage('Test reporting') {
+          steps {
+            cucumber 'reports/report.html'
+          }
+        }
+
+      }
+    }
+    
+    stage ( 'Qualite Gate')
         {
           post
           {
@@ -43,18 +53,9 @@ pipeline {
           }
         }
 
-        stage('Test reporting') {
-          steps {
-            cucumber 'reports/report.html'
-          }
-        }
-
-      }
-    }
-
     stage('Deployment') {
       steps {
-        sh 'gradle publish'
+        bat 'gradle publish'
       }
     }
 
