@@ -21,11 +21,10 @@ pipeline {
       parallel {
         stage('Code Analysis') {
           steps {
-            withSonarQubeEnv('sonar')
-            {
+            withSonarQubeEnv('sonar') {
               bat 'gradle sonarqube'
             }
-            
+
           }
         }
 
@@ -37,21 +36,18 @@ pipeline {
 
       }
     }
-    
-    stage ( 'Qualite Gate')
-        {
-          post
-          {
-            failure
-            {
-              mail(subject: 'TP Jenkins', body: 'Qualite gate is not good', to: 'ik_gribissa@esi.dz')
-            }
-          }
-          steps
-          {
-            waitForQualityGate true
-          }
+
+    stage('Qualite Gate') {
+      post {
+        failure {
+          mail(subject: 'TP Jenkins', body: 'Qualite gate is not good', to: 'ik_gribissa@esi.dz')
         }
+
+      }
+      steps {
+        waitForQualityGate true
+      }
+    }
 
     stage('Deployment') {
       steps {
