@@ -2,10 +2,11 @@ pipeline {
   agent any
   stages {
     stage('Build') {
-      post{
-        failure{
+      post {
+        failure {
           mail(subject: 'TP Jenkins', body: 'failure: build not done', to: 'ik_gribissa@esi.dz')
         }
+
       }
       steps {
         bat 'gradle build'
@@ -26,13 +27,13 @@ pipeline {
       parallel {
         stage('Code Analysis') {
           steps {
-            withSonarQubeEnv('sonar')
-            {
+            withSonarQubeEnv('sonar') {
               bat 'gradle sonarqube'
             }
+
+          }
         }
-      }
-        
+
         stage('Test reporting') {
           steps {
             cucumber 'reports/report.html'
@@ -42,21 +43,18 @@ pipeline {
       }
     }
 
-    stage ( 'Qualite Gate')
-            {
-              post
-              {
-                failure
-                {
-                  mail(subject: 'TP Jenkins', body: 'Qualite gate is not good', to: 'ik_gribissa@esi.dz')
-                }
-              }
-              steps
-              {
-                waitForQualityGate true
-              }
-          }
-    
+    stage('Qualite Gate') {
+      post {
+        failure {
+          mail(subject: 'TP Jenkins', body: 'Qualite gate is not good', to: 'ik_gribissa@esi.dz')
+        }
+
+      }
+      steps {
+        waitForQualityGate true
+      }
+    }
+
     stage('Deployment') {
       steps {
         bat 'gradle publish'
